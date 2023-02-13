@@ -4,15 +4,15 @@ import './App.css'
 import EventHandler from '../utils/eventHandler'
 import NodeHandler from './NodeHandler';
 
-var nodeHandler = new NodeHandler(window.innerWidth, window.innerHeight);
-var eventHandler = new EventHandler(nodeHandler);
+var nodeHandlerComponent = <NodeHandler screenWidth={window.innerWidth} screenHeight={window.innerHeight}/>;
+var eventHandler = new EventHandler(nodeHandlerComponent);
 eventHandler.registerEvents();
 
 export default function App() {
   return (
     <div className="App">
-      <Display nodeDict={nodeHandler.nodes}/>
-      <ToolBar/>
+      {nodeHandlerComponent}
+      <ToolBar/ >
     </div>
   )
 }

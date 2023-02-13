@@ -9,7 +9,6 @@ export default class Display extends Component {
     }
 
     render() {
-        console.log(this.state.nodeHandler);
         var nodeArray = []
         for (var node in this.state.nodeDictionary) {
             nodeArray.push(this.state.nodeDictionary[node])
