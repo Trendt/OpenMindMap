@@ -11,7 +11,7 @@ eventHandler.registerEvents();
 export default function App() {
   return (
     <div className="App">
-      <Display nodeHandler={nodeHandler}/>
+      <Display nodeDict={nodeHandler.nodes}/>
       <ToolBar/>
     </div>
   )

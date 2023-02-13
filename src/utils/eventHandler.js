@@ -1,13 +1,12 @@
-import { Component } from "react";
-import NodeHandler from "../components/NodeHandler";
 
-export default class EventHandler{
+export default class EventHandler {
     constructor(nodeHandler) {
         this.currentTool = "NORMAL"
         this.nodeHandler = nodeHandler;
+        console.log("NodeHandler:", this.nodeHandler);
     }
 
-    setCurrentTool(newTool){
+    setCurrentTool(newTool) {
         this.currentTool = newTool;
     }
 
@@ -19,7 +18,6 @@ export default class EventHandler{
                 break;
 
             case "ADD":
-                console.log(nodeID)
                 this.nodeHandler.addNode(nodeID);
                 break;
 
@@ -27,6 +25,7 @@ export default class EventHandler{
                 break;
 
             case "REMOVE":
+                this.nodeHandler.removeNode(nodeID);
                 break;
 
             case "CONFIG":
@@ -56,8 +55,8 @@ export default class EventHandler{
 
     registerEvents() {
         var classInstance = new EventHandler;
-        document.addEventListener("clickNodeEvent", classInstance);
+        document.addEventListener("clickNodeEvent", this);
 
-        document.addEventListener("changeToolEvent", classInstance);
+        document.addEventListener("changeToolEvent", this);
     }
 }

@@ -1,5 +1,3 @@
-import ColorObject from "../utils/colorObject"
-import TextObject from "../utils/textObject"
 import React, {Component} from "react";
 
 export default class Node extends React.Component{
@@ -7,6 +5,7 @@ export default class Node extends React.Component{
         super(props);
 
         this.state = {
+            key: props.key,
             id: props.id,
             parentId: props.parentId,
             type: props.type,
@@ -27,7 +26,8 @@ export default class Node extends React.Component{
 
     render() {
         return ([
-            (this.state.type.includes("ellipse")) ? <ellipse 
+            (this.state.type.includes("ellipse")) ? <ellipse
+                key="ellipse"
                 onClick={() => document.dispatchEvent(new CustomEvent("clickNodeEvent", {"detail":{"id":this.state.id}}))}
                 cx={this.state.x} cy={this.state.y}
                 rx={this.state.width} ry={this.state.height}
@@ -36,6 +36,7 @@ export default class Node extends React.Component{
                 strokeWidth={this.state.nodeStrokeWidth}/> : null,
 
             (this.state.type.includes("text")) ? <text 
+                key="text"
                 onClick={() => document.dispatchEvent(new CustomEvent("clickNodeEvent", {"detail":{"id":this.state.id}}))} 
                 x={this.state.x} y={this.state.y}
                 textAnchor="middle"
@@ -52,6 +53,7 @@ export default class Node extends React.Component{
 
 Node.defaultProps = {
     id: 0,
+    key: 0,
     parentId:undefined,
     type: "ellipse-text",
     x: 0,
