@@ -1,4 +1,3 @@
-
 export default class EventHandler {
     constructor(nodeHandler) {
         this.currentTool = "NORMAL"
@@ -18,6 +17,7 @@ export default class EventHandler {
                 break;
 
             case "ADD":
+                console.log(this.nodeHandler);
                 this.nodeHandler.addNode(nodeID);
                 break;
 
@@ -54,7 +54,6 @@ export default class EventHandler {
     }
 
     registerEvents() {
-        var classInstance = new EventHandler;
         document.addEventListener("clickNodeEvent", this);
 
         document.addEventListener("changeToolEvent", this);

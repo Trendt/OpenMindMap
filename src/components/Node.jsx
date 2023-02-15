@@ -20,7 +20,7 @@ export default class Node extends React.Component{
             textSize: props.textSize,
             textColor: props.textColor,
             textStrokeColor: props.textStrokeColor,
-            textStrokeWidth: props.textStrokeWidth,
+            textStrokeWidth: props.textStrokeWidth
         }
      }
 

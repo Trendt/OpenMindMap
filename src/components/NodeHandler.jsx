@@ -9,7 +9,8 @@ export default class NodeHandler extends Component {
             screenWidth: props.screenWidth,
             screenHeight: props.screenHeight,
             nodes: { 0: <Node x={50} y={50} id={0} /> },
-            highestID: 0
+            highestID: 0,
+            addNode: this.addNode
         }
     }
 
